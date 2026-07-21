@@ -17,8 +17,6 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
-    }
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 17
 }
