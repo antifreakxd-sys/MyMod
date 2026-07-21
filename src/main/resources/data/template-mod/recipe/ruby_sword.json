@@ -1,14 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "pattern": [
-    "R",
-    "R",
-    "S"
+    " R ",
+    " R ",
+    " S "
   ],
   "key": {
     "R": {
-      "item": "minecraft:redstone_block"
+      "item": "template-mod:ruby"
     },
     "S": {
       "item": "minecraft:stick"
