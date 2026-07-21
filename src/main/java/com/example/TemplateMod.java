@@ -7,27 +7,20 @@ import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class TemplateMod implements ModInitializer {
-    public static final String MOD_ID = "modid";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final String MOD_ID = "template-mod";
 
-    // Регистрация Рубинового Меча
-    public static final Item RUBY_SWORD = Registry.register(
-        Registries.ITEM,
-        Identifier.of(MOD_ID, "ruby_sword"),
-        new SwordItem(
-            ToolMaterials.NETHERITE,
-            4,
-            -2.4f,
-            new Item.Settings()
-        )
-    );
+    // Создаём Рубин
+    public static final Item RUBY = new Item(new Item.Settings());
+
+    // Создаём Рубиновый меч (характеристики как у алмазного меча + урон)
+    public static final Item RUBY_SWORD = new SwordItem(ToolMaterials.DIAMOND, 4, -2.4f, new Item.Settings());
 
     @Override
     public void onInitialize() {
-        LOGGER.info("Рубиновый меч загружен!");
+        // Регистрируем предметы в игре
+        Registry.register(Registries.ITEM, new Identifier(MOD_ID, "ruby"), RUBY);
+        Registry.register(Registries.ITEM, new Identifier(MOD_ID, "ruby_sword"), RUBY_SWORD);
     }
 }
